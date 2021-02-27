@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Posts</title> 
+{% endblock %}
+
+{% block body %}
+<br>
+<div>
+    <h1 style="display:inline">All Posts</h1>
+    <a style="display:inline" class="btn btn-success float-right" href="/posts/new" >+ New Post</a>
+</div>
+    <hr>
+
+
+        <h2>{{ post.title }}</h2>
+
+            <small> Posted by {{ post.created_by }} on {{ post.date_posted }}</small>
+
+        <br>
+        <br>
+        <p style="white-space:pre-wrap">{{ post.content }}</p>
+        <br>
+        <a class="btn btn-danger" href='/post/delete/{{post.id}}'>Reply</a>
+        <a class="btn btn-danger" href='/post/delete/{{post.id}}'>Delete</a>
+        <a class="btn btn-primary" href='/post/edit/{{post.id}}'>Edit</a>
+        <br>
+        <hr>
+        <br>
+
+
+    {% for comment in commentss %}
+
+
+            <small> Commenter {{ comment.created_by }} on {{ comment.date_posted }}</small>
+
+        <br>
+        <br>
+        <p style="white-space:pre-wrap">{{ comment.content }}</p>
+        <br>
+        <a class="btn btn-danger" href='/post/delete/{{post.id}}'>Reply</a>
+        <a class="btn btn-danger" href='/post/delete/{{post.id}}'>Delete</a>
+        <a class="btn btn-primary" href='/post/edit/{{post.id}}'>Edit</a>
+        <br>
+        <hr>
+        <br>
+    {% endfor%}
+
+{% endblock %}

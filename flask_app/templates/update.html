@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title xmlns="http://www.w3.org/1999/html">Edit Post</title>
+{% endblock %}
+
+{% block body %}
+<h4 class="mt-4">Update Post</h4>
+
+    <form action="{{ url_for('update', id=post.id) }}" method="POST">
+        <input class="form-control" type="text" name="title" value="{{ post.title }}" placeholder="Title">
+        <textarea class="form-control" name="content" id="content" aria-label="Enter Content" rows="3">{{ post.content }}</textarea>
+
+        <input class="btn btn-success btn-md mt-2" type='submit' value='Save'>
+    </form>
+
+{% endblock %}

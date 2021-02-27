@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>New Post</title> 
+{% endblock %}
+
+{% block body %}
+
+
+
+    <h4 class="mt-4">Create a post</h4>
+    <form action='/post/new/' method='POST'>
+        <input class="form-control" type="text" name='title' id='title' placeholder="Title your post here." aria-label="Enter Title">
+
+        <textarea class="form-control" name='text' id="content" placeholder="Enter Content" aria-label="Main post text." rows="3"></textarea>
+        <input class="form-control" type="text" name='author' id='author' placeholder="Enter your name" aria-label="Enter Author">
+        <input class="btn btn-md btn-success" type='submit' value='Post'>
+    </form>
+
+{% endblock %}

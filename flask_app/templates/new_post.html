@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Piper | Post</title>
+{% endblock %}
+
+{% block body %}
+
+    <h3 class="pt-3">Create A New Post:</h3>
+    <form action="/post/new/" method="POST">
+        {{ form.csrf_token() }}
+
+        {{ form.title() }}
+        {% for error in form.title.errors %}
+        {{ error }}
+        {% endfor %}
+        <br>
+
+
+        {{ form.content()  }}
+        {% for error in form.content.errors %}
+        {{ error }}
+        {% endfor %}
+        <br>
+        <button class="btn btn-success btn-md" type="submit">Post</button>
+    </form>
+
+
+{% endblock %}
